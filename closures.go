@@ -4,7 +4,7 @@ import "fmt"
 
 func intSeq() (increment func() int) {
 	i := 0
-	increment = func () int {
+	increment = func() int {
 		i++
 		return i
 	}
@@ -20,4 +20,3 @@ func main() {
 	newInt := intSeq()
 	fmt.Println(newInt())
 }
-
