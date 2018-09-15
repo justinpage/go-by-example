@@ -8,13 +8,13 @@ import (
 )
 
 type readOp struct {
-	key int
+	key  int
 	resp chan int
 }
 
 type writeOp struct {
-	key int
-	val int
+	key  int
+	val  int
 	resp chan bool
 }
 
@@ -42,7 +42,7 @@ func main() {
 		go func() {
 			for {
 				read := &readOp{
-					key: rand.Intn(5),
+					key:  rand.Intn(5),
 					resp: make(chan int),
 				}
 				reads <- read
@@ -57,8 +57,8 @@ func main() {
 		go func() {
 			for {
 				write := &writeOp{
-					key: rand.Intn(5),
-					val: rand.Intn(100),
+					key:  rand.Intn(5),
+					val:  rand.Intn(100),
 					resp: make(chan bool),
 				}
 				writes <- write
@@ -68,7 +68,6 @@ func main() {
 			}
 		}()
 	}
-
 
 	time.Sleep(time.Second)
 
