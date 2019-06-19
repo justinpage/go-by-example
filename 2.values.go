@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
 	fmt.Println("go" + "lang")
@@ -14,4 +12,3 @@ func main() {
 	fmt.Println(true || false)
 	fmt.Println(!true)
 }
-
