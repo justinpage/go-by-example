@@ -15,7 +15,9 @@ func main() {
 	const d = 3e20 / n
 	fmt.Println(d)
 
+	fmt.Printf("%T\n", d)
 	fmt.Println(int64(d))
+	fmt.Printf("%T\n", int64(d))
 
 	fmt.Println(math.Sin(n))
 }
