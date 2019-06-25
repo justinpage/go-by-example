@@ -21,7 +21,7 @@ func main() {
 		break
 	}
 
-	// Continue 
+	// Continue
 	for n := 0; n <= 5; n++ {
 		if n%2 == 0 {
 			continue
