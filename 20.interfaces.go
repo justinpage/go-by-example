@@ -5,44 +5,44 @@ import (
 	"math"
 )
 
-type Geometry interface {
-	Area() float64
-	Perim() float64
+type geometry interface {
+	area() float64
+	perim() float64
 }
 
-type Rect struct {
-	Width, Height float64
+type rect struct {
+	width, height float64
 }
 
-type Circle struct {
-	Radius float64
+type circle struct {
+	radius float64
 }
 
-func (r *Rect) Area() float64 {
-	return r.Width * r.Height
+func (r *rect) area() float64 {
+	return r.width * r.height
 }
 
-func (r *Rect) Perim() float64 {
-	return 2*r.Width + 2*r.Height
+func (r *rect) perim() float64 {
+	return 2*r.width + 2*r.height
 }
 
-func (c *Circle) Area() float64 {
-	return math.Pi * c.Radius * c.Radius
+func (c *circle) area() float64 {
+	return math.Pi * c.radius * c.radius
 }
 
-func (c *Circle) Perim() float64 {
-	return 2 * math.Pi * c.Radius
+func (c *circle) perim() float64 {
+	return 2 * math.Pi * c.radius
 }
 
-func measure(g Geometry) {
+func measure(g geometry) {
 	fmt.Println(g)
-	fmt.Println(g.Area())
-	fmt.Println(g.Perim())
+	fmt.Println(g.area())
+	fmt.Println(g.perim())
 }
 
 func main() {
-	r := &Rect{Width: 3, Height: 4}
-	c := &Circle{Radius: 5}
+	r := &rect{width: 3, height: 4}
+	c := &circle{radius: 5}
 
 	measure(r)
 	measure(c)
