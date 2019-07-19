@@ -2,16 +2,16 @@ package main
 
 import "fmt"
 
-func F(from string) {
+func f(from string) {
 	for i := 0; i < 3; i++ {
 		fmt.Println(from, ":", i)
 	}
 }
 
 func main() {
-	F("direct")
+	f("direct")
 
-	go F("goroutine")
+	go f("goroutine")
 
 	go func(msg string) {
 		fmt.Println(msg)
