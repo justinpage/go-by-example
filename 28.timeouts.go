@@ -7,8 +7,7 @@ import (
 
 func main() {
 	c1 := make(chan string, 1)
-
-	go func() {
+	go func () {
 		time.Sleep(2 * time.Second)
 		c1 <- "result 1"
 	}()
@@ -16,13 +15,12 @@ func main() {
 	select {
 	case res := <-c1:
 		fmt.Println(res)
-	case <-time.After(1 * time.Second):
-		fmt.Println("timeout 1")
+	case now := <-time.After(1 * time.Second):
+		fmt.Println("timeout 1", now)
 	}
 
 	c2 := make(chan string, 1)
-
-	go func() {
+	go func () {
 		time.Sleep(2 * time.Second)
 		c2 <- "result 2"
 	}()
@@ -30,7 +28,8 @@ func main() {
 	select {
 	case res := <-c2:
 		fmt.Println(res)
-	case <-time.After(3 * time.Second):
-		fmt.Println("timeout 2")
+	case now := <-time.After(3 * time.Second):
+		fmt.Println("timeout 3", now)
 	}
 }
+
