@@ -16,5 +16,5 @@ func main() {
 
 	time.Sleep(1600 * time.Millisecond)
 	ticker.Stop()
-	fmt.Println("Ticker stopped")
+	fmt.Println("Ticker Stopped")
 }
