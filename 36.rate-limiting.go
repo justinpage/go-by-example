@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	// Example One
 	requests := make(chan int, 5)
 	for i := 1; i <= 5; i++ {
 		requests <- i
@@ -19,6 +20,7 @@ func main() {
 		fmt.Println("request", req, time.Now())
 	}
 
+	// Example Two
 	burstyLimiter := make(chan time.Time, 3)
 
 	for i := 0; i < 3; i++ {
@@ -36,6 +38,7 @@ func main() {
 		burstyRequests <- i
 	}
 	close(burstyRequests)
+
 	for req := range burstyRequests {
 		<-burstyLimiter
 		fmt.Println("request", req, time.Now())
