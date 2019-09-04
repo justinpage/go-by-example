@@ -9,13 +9,14 @@ import (
 )
 
 func main() {
-	state := make(map[int]int)
-	mutex := &sync.Mutex{}
+	var state = make(map[int]int)
+
+	var mutex = &sync.Mutex{}
 
 	var readOps uint64
 	var writeOps uint64
 
-	// Reads
+	// Read from state
 	for r := 0; r < 100; r++ {
 		go func() {
 			total := 0
@@ -25,12 +26,13 @@ func main() {
 				total += state[key]
 				mutex.Unlock()
 				atomic.AddUint64(&readOps, 1)
+
 				time.Sleep(time.Millisecond)
 			}
 		}()
 	}
 
-	// Writes
+	// Write to state
 	for w := 0; w < 10; w++ {
 		go func() {
 			for {
@@ -40,6 +42,7 @@ func main() {
 				state[key] = val
 				mutex.Unlock()
 				atomic.AddUint64(&writeOps, 1)
+
 				time.Sleep(time.Millisecond)
 			}
 		}()
@@ -47,8 +50,9 @@ func main() {
 
 	time.Sleep(time.Second)
 
-	readsOpsFinal := atomic.LoadUint64(&readOps)
-	fmt.Println("readOps:", readsOpsFinal)
+	readOpsFinal := atomic.LoadUint64(&readOps)
+	fmt.Println("readOps:", readOpsFinal)
+
 	writeOpsFinal := atomic.LoadUint64(&writeOps)
 	fmt.Println("writeOps:", writeOpsFinal)
 
