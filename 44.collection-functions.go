@@ -11,7 +11,6 @@ func Index(vs []string, t string) int {
 			return i
 		}
 	}
-
 	return -1
 }
 
@@ -56,7 +55,7 @@ func Map(vs []string, f func(string) string) []string {
 }
 
 func main() {
-	strs := []string{"peach", "apple", "pear", "plum"}
+	var strs = []string{"peach", "apple", "pear", "plum"}
 
 	fmt.Println(Index(strs, "pear"))
 
@@ -67,7 +66,7 @@ func main() {
 	}))
 
 	fmt.Println(All(strs, func(v string) bool {
-		return strings.HasPrefix(v, "p")
+		return strings.HasPrefix(v, "e")
 	}))
 
 	fmt.Println(Filter(strs, func(v string) bool {
