@@ -41,7 +41,6 @@ func main() {
 		Page:   1,
 		Fruits: []string{"apple", "peach", "pear"},
 	}
-
 	res1B, _ := json.Marshal(res1D)
 	fmt.Println(string(res1B))
 
@@ -49,7 +48,6 @@ func main() {
 		Page:   1,
 		Fruits: []string{"apple", "peach", "pear"},
 	}
-
 	res2B, _ := json.Marshal(res2D)
 	fmt.Println(string(res2B))
 
@@ -60,10 +58,9 @@ func main() {
 	if err := json.Unmarshal(byt, &dat); err != nil {
 		panic(err)
 	}
-
 	fmt.Println(dat)
 
-	num := dat["num"].(float64)
+	num := dat["num"]
 	fmt.Println(num)
 
 	strs := dat["strs"].([]interface{})
