@@ -17,9 +17,6 @@ func main() {
 	fmt.Println(millis)
 	fmt.Println(nanos)
 
-	millis2 := nanos / int64(time.Millisecond)
-	fmt.Println(millis2)
-
 	fmt.Println(time.Unix(secs, 0))
 	fmt.Println(time.Unix(0, nanos))
 }
