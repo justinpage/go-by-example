@@ -15,7 +15,7 @@ func main() {
 	d, _ := strconv.ParseInt("0x1c8", 0, 64)
 	fmt.Println(d)
 
-	u, _ := strconv.ParseUint("789", 0, 64)
+	u, _ := strconv.ParseInt("789", 0, 64)
 	fmt.Println(u)
 
 	k, _ := strconv.Atoi("135")
