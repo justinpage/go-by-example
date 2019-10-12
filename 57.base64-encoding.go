@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	data := "abc123!?$*&()'-=@~"
+	data := "abc123!?$*&();-=@~"
 
 	sEnc := b64.StdEncoding.EncodeToString([]byte(data))
 	fmt.Println(sEnc)
@@ -17,6 +17,8 @@ func main() {
 
 	uEnc := b64.URLEncoding.EncodeToString([]byte(data))
 	fmt.Println(uEnc)
+
 	uDec, _ := b64.URLEncoding.DecodeString(uEnc)
 	fmt.Println(string(uDec))
 }
+
