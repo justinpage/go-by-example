@@ -1,8 +1,8 @@
 package main
 
 import (
-	"crypto/sha1"
 	"crypto/md5"
+	"crypto/sha1"
 	"fmt"
 )
 
@@ -29,4 +29,3 @@ func main() {
 	fmt.Println(m)
 	fmt.Printf("%x\n", ms)
 }
-

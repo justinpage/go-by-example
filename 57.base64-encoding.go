@@ -21,4 +21,3 @@ func main() {
 	uDec, _ := b64.URLEncoding.DecodeString(uEnc)
 	fmt.Println(string(uDec))
 }
-
