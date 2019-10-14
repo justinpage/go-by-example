@@ -15,24 +15,27 @@ func check(e error) {
 }
 
 func main() {
-	dat, err := ioutil.ReadFile("/tmp/dat")
+	dat, err := ioutil.ReadFile("./58.reading-files.go")
 	check(err)
 	fmt.Print(string(dat))
 
-	f, err := os.Open("/tmp/dat")
+	f, err := os.Open("./58.reading-files.go")
 	check(err)
+
+	defer f.Close()
 
 	b1 := make([]byte, 5)
 	n1, err := f.Read(b1)
 	check(err)
-	fmt.Printf("%d bytes: %s\n", n1, string(b1))
+	fmt.Printf("%d bytes: %s\n", n1, string(b1[:n1]))
 
 	o2, err := f.Seek(6, 0)
 	check(err)
 	b2 := make([]byte, 2)
 	n2, err := f.Read(b2)
 	check(err)
-	fmt.Printf("%d bytes @ %d: %s\n", n2, o2, string(b2))
+	fmt.Printf("%d bytes @ %d\n", n2, o2)
+	fmt.Printf("%v\n", string(b2[:n2]))
 
 	o3, err := f.Seek(6, 0)
 	check(err)
@@ -49,5 +52,4 @@ func main() {
 	check(err)
 	fmt.Printf("5 bytes: %s\n", string(b4))
 
-	f.Close()
 }
