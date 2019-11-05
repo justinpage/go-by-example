@@ -33,4 +33,3 @@ func main() {
 	err = ioutil.WriteFile(fname, []byte{1, 2}, 0666)
 	check(err)
 }
-
